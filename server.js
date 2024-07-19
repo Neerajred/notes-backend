@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
@@ -204,6 +205,12 @@ app.get('/notes/:id', authMiddleware, (req, res) => {
         }
         res.json(note);
     });
+});
+
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+app.get("/",(req,res) =>{
+    res.sendFile(path.join(__dirname,'frontend', "index.html"));
 });
 
 app.listen(process.env.PORT||"5000",()=>{
