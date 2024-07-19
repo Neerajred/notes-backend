@@ -73,37 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html';
     });
 
-    // Fetch and display notes by label
-    function fetchNotesByLabel(label) {
-        fetch(`${apiUrl}/notes/label/${label}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then(response => response.json())
-            .then(notes => {
-                const notesContainer = document.getElementById('notes-container');
-                notesContainer.innerHTML = '';
-                notes.forEach(note => {
-                    const noteElement = document.createElement('div');
-                    noteElement.classList.add('note');
-                    noteElement.style.backgroundColor = note.backgroundColor;
-                    noteElement.innerHTML = `
-                    <h3>${note.title}</h3>
-                    <p>${note.content}</p>
-                    <div class="tags">${note.tags.split(',').join(', ')}</div>
-                    <button class="edit-note-button" data-id="${note.id}">Edit</button>
-                    <button class="delete-note-button" data-id="${note.id}">Delete</button>
-                `;
-                    notesContainer.appendChild(noteElement);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching notes:', error);
-            });
-    }
-
     // Fetch archived notes
     document.getElementById('view-archive-button').addEventListener('click', function () {
         fetch(`${apiUrl}/notes/archived`, {
