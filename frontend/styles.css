@@ -1,0 +1,83 @@
+/* Example CSS for the application */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.auth-container {
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.auth-container input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar {
+    width: 50%;
+}
+
+aside {
+    width: 20%;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+main {
+    width: 70%;
+    padding: 20px;
+}
+
+.note {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.close-button {
+    align-self: flex-end;
+    cursor: pointer;
+}
